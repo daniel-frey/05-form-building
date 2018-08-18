@@ -78,8 +78,7 @@ articleView.setTeasers = () => {
 // PUT YOUR RESPONSE HERE
 articleView.initNewArticlePage = () => {
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
-
+  $('.tabcontent').show();
   // TODO: The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide it for now, and show it once we have data to export.
 
@@ -88,20 +87,26 @@ articleView.initNewArticlePage = () => {
   });
 
   // TODO: Add an event handler to update the preview and the export field if any inputs change.
-
+  $('form').on('change', 'input, textarea', articleView.create);
 };
 
 articleView.create = () => {
   // TODO: Set up a variable to hold the new article we are creating.
+
+  let article = {};
   // Clear out the #articles element, so we can put in the updated preview
-
-
+  $('articles').html('');
   // TODO: Instantiate an article based on what's in the form fields:
+  article.author = $('#author').val();
+  article.authorUrl = $('#authorUrl').val();
+  article.category = $('#category').val();
+  article.body = $('#body').val();
+  article.title = $('#title').val();
 
-
+  let post = new Article(article);
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
 
-
+  $('#articles').html (post.toHtml());
   // TODO: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
   $('pre code').each();
 

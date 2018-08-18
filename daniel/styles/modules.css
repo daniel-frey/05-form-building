@@ -97,6 +97,16 @@ input:valid, textarea:valid {
   border-color: #89CB8E;
 }
 
+#article-export {
+  overflow: hidden;
+}
+
+#json-output {
+  opacity: .75;
+  width: 65%;
+  float: right;
+}
+
 /* === ICON FONT === */
 
 .icon-menu {
