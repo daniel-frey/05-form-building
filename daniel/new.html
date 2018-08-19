@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
     <!-- NOTE (stretch goal): To fully incorporate the highlighting library "hljs" we need to fill the empty link tag below to refer to a CSS file that will handle our text highlighting -->
-    <link>
+    <link rel="stylesheet" href="/vendor/styles/hljs.css">
     <!-- TODO: We want our new article form to be able to display a preview of the article that is being entered. Thus, we need code here that will recreate the same structure of our other articles. What do you think we need to add here? -->
       <script id="article-template" type="text/x-handlebars-template">
         <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
@@ -54,11 +54,12 @@
            4. Author's URL
            5. Article category
            6. Some way to know if this article is a draft or is published -->
-          <form>
+          <form id="new-form">
             <input id="title" name="title" placeholder="Title">
             <input id="author" name="author" placeholder="Author Name" />
             <input id="authorUrl" name="authorUrl" placeholder="Author URL" />
-            <input id="category"name="category" placeholder="Category Name" />
+            <input id="category" name="category" placeholder="Category Name" />
+            <input type="checkbox" id="article-published">Published
             <textarea id="body" name="body" placeholder="Article Content Here"></textarea>
           </form>
       </section>
@@ -69,8 +70,10 @@
 
       <section id="article-export">
         <!-- TODO: Refer to the preview image to see what we will be building here: we need a container of some kind to hold a JSON export of our article. Ideally this container would show only a incipit (short preview) of the JSON and also be clickable to allow easy selection of the text it holds. What kind of element could we use for this? -->
-        <input id="json-output" />
-        Copy and paste this and put into the DB
+        <label id="export-field" class="pull-right" for="article-json">
+            <input type="text" id="article-json">
+          Copy and paste this and put into the DB
+        </label>
       </section>
 
     </main>
@@ -80,10 +83,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <!-- NOTE (stretch goal): Include script tags for 3rd party libraries to enable Markdown rendering and code syntax highlighting. Use the minified CDN. Keep in mind that if we want these features to render properly on our main blog page (index.html) that we'll need to add those scripts over there, too. -->
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
+    <!-- NOTE (stretch goal): Include script tags for 3rd party libraries to enable Markdown rendering and code syntax highlighting. Use the minified CDN. Keep in mind that if we want these features to render properly on our main blog page (index.html) that we'll need to add those scripts over there, too. -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>
       // TODO: We will need to call a function here to initialize the behaviors on this page, once we get them built out. Why?
       // (Look at the bottom of index.html as a reference. Since we are now using our JS on two different HTML pages that have different needs as to what parts of the code they utilize, we need to build a function that inializes each page.)
@@ -91,6 +95,6 @@
       articleView.initNewArticlePage();
       // COMMENT: What is this function doing? Why do we need it?
       // PUT YOUR RESPONSE HERE
-    </script>
+      </script>
   </body>
 </html>
