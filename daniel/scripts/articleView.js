@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+// This is called at the bottom of the new.html page so that it will run after the page is created. Also it is required for the functionality.
 articleView.initNewArticlePage = () => {
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
   $('.tabcontent').show();
@@ -113,9 +113,11 @@ articleView.create = () => {
   $('#articles').html(post.toHtml());
 
   // TODO: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
-  // $('pre code').each(function(i, block) {
-  //   hljs.highlightBlock(block);
-  // });
+  // This is a work in progress.
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
   // TODO: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   $('#export-field').show();
   $('#article-json').val(JSON.stringify(article) + ',');
@@ -123,7 +125,7 @@ articleView.create = () => {
 };
 
 // COMMENT: Where is this function called? Why?
-// PUT YOUR RESPONSE HERE
+//This is called on the index.html page. If it weren't called, then none of the articles would ever populate the page.
 articleView.initIndexPage = () => {
   articles.forEach(article => $('#articles').append(article.toHtml()));
   articleView.populateFilters();

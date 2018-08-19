@@ -86,7 +86,17 @@ The user must clone the repo, and have some sort of web server / live server run
 jQuery, Handlebars, JavaScript, HTML, and minimal CSS
 
 ## Change Log
-<!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
+Author: Daniel Frey <dann.frey@me.com>
+Date:   Sun Aug 19 14:49:56 2018 -0700 - updated readme and pull request
+
+Author: Daniel Frey <dann.frey@me.com>
+Date:   Sun Aug 19 14:41:13 2018 -0700 - all code but stretch goal
+
+Author: Daniel Frey <dann.frey@me.com>
+Date:   Fri Aug 17 17:00:40 2018 -0700 - end of class progress
+
+Author: Daniel Frey <dann.frey@me.com>
+Date:   Fri Aug 17 15:52:18 2018 -0700 - added starter folder
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
 
